@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import GoogleAuth from './GoogleAuth';
 
 const Header = function () {
   return (
@@ -14,7 +15,7 @@ const Header = function () {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-gray-100">login</Link>
+            <GoogleAuth />
           </li>
         </ul>
       </nav>
