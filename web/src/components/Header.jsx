@@ -8,9 +8,12 @@ const Header = function () {
         <Link className="text-white" to="/">
           Streamy
         </Link>
-        <ul className="flex gap-4 text-gray-400">
+        <ul className="flex items-center gap-4">
           <li>
-            <Link to="/" className="hover:text-gray-100">
+            <Link
+              to="/"
+              className="text-gray-400 hover:text-gray-100 transition-all"
+            >
               streams
             </Link>
           </li>
