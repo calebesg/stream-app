@@ -1,18 +1,46 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form/dist/redux-form';
+import { reduxForm } from 'redux-form/dist/redux-form';
+import CustomField from '../CustomField';
 
 class StreamCreate extends React.Component {
+  handleSubmit(formProps) {
+    console.log(formProps);
+  }
+
   render() {
     return (
-      <form>
-        <Field name="title" component="input" type="text" placeholder="Title" />
-
-        <Field
-          name="description"
-          component="input"
-          type="text"
-          placeholder="Description"
+      <form
+        onSubmit={this.props.handleSubmit(this.handleSubmit)}
+        className="container flex flex-col mx-auto pt-6 gap-4 px-4 sm:px-0"
+      >
+        <CustomField
+          input={{
+            id: 'title',
+            name: 'title',
+            placeholder: 'Title',
+            component: 'input',
+            type: 'text',
+          }}
+          label="Enter a Title"
         />
+
+        <CustomField
+          input={{
+            id: 'description',
+            name: 'description',
+            placeholder: 'Description',
+            component: 'input',
+            type: 'text',
+          }}
+          label="Enter a Description"
+        />
+
+        <button
+          type="submit"
+          className="bg-slate-700 rounded-md text-white p-2 hover:bg-slate-400 transition-all mt-8"
+        >
+          Submit
+        </button>
       </form>
     );
   }
