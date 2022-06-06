@@ -1,17 +1,40 @@
-import { Field } from 'redux-form/dist/redux-form';
+import React from 'react';
+import { connect } from 'react-redux';
+import { getFormMeta } from 'redux-form';
+import { Field, getFormSyncErrors } from 'redux-form/dist/redux-form';
 
-const CustomField = function (props) {
-  return (
-    <div className="flex flex-col">
-      <label className="font-bold text-gray-600" htmlFor={props.input.id}>
-        {props.label}
-      </label>
-      <Field
-        className="w-full border border-gray-400 rounded-md p-2"
-        {...props.input}
-      />
-    </div>
-  );
+class CustomField extends React.Component {
+  renderError = () => {
+    if (!this.props.error || !this.props.meta?.visited) return null;
+
+    return <span className="text-red-500 text-sm">{this.props.error}</span>;
+  };
+
+  render() {
+    return (
+      <div className="flex flex-col">
+        <label
+          className="font-bold text-gray-600"
+          htmlFor={this.props.input.id}
+        >
+          {this.props.label}
+        </label>
+        <Field
+          className="w-full border border-gray-400 rounded-md p-2"
+          {...this.props.input}
+          autoComplete="off"
+        />
+        {this.renderError()}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    meta: getFormMeta('streamCreate')(state)[ownProps.input.id],
+    error: getFormSyncErrors('streamCreate')(state)[ownProps.input.id],
+  };
 };
 
-export default CustomField;
+export default connect(mapStateToProps)(CustomField);

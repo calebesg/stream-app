@@ -3,9 +3,9 @@ import { reduxForm } from 'redux-form/dist/redux-form';
 import CustomField from '../CustomField';
 
 class StreamCreate extends React.Component {
-  handleSubmit(formProps) {
+  handleSubmit = formProps => {
     console.log(formProps);
-  }
+  };
 
   render() {
     return (
@@ -46,4 +46,18 @@ class StreamCreate extends React.Component {
   }
 }
 
-export default reduxForm({ form: 'streamCreate' })(StreamCreate);
+const validate = formValue => {
+  const errors = {};
+
+  if (!formValue.title) {
+    errors.title = 'You must enter a title';
+  }
+
+  if (!formValue.description) {
+    errors.description = 'You must enter a description';
+  }
+
+  return errors;
+};
+
+export default reduxForm({ form: 'streamCreate', validate })(StreamCreate);
