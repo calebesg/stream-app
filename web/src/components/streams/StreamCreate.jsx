@@ -1,10 +1,12 @@
 import React from 'react';
 import { reduxForm } from 'redux-form/dist/redux-form';
+import { connect } from 'react-redux';
+import { createStreamy } from '../../actions';
 import CustomField from '../CustomField';
 
 class StreamCreate extends React.Component {
   handleSubmit = formProps => {
-    console.log(formProps);
+    this.props.createStreamy(formProps);
   };
 
   render() {
@@ -60,4 +62,6 @@ const validate = formValue => {
   return errors;
 };
 
-export default reduxForm({ form: 'streamCreate', validate })(StreamCreate);
+const formWrapper = reduxForm({ form: 'streamCreate', validate })(StreamCreate);
+
+export default connect(null, { createStreamy })(formWrapper);
