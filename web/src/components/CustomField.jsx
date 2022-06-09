@@ -5,9 +5,9 @@ import { Field, getFormSyncErrors } from 'redux-form/dist/redux-form';
 
 class CustomField extends React.Component {
   renderError = () => {
-    if (!this.props.error || !this.props.meta?.visited) return null;
-
-    return <span className="text-red-500 text-sm">{this.props.error}</span>;
+    if (this.props.error && this.props.meta?.visited) {
+      return <span className="text-red-500 text-sm">{this.props.error}</span>;
+    }
   };
 
   render() {
