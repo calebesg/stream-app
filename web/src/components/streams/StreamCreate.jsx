@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form/dist/redux-form';
 import { connect } from 'react-redux';
 import { createStreamy } from '../../actions';
 import CustomField from '../CustomField';
+import Container from '../Container';
 
 class StreamCreate extends React.Component {
   handleSubmit = formProps => {
@@ -11,39 +12,41 @@ class StreamCreate extends React.Component {
 
   render() {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.handleSubmit)}
-        className="container flex flex-col mx-auto pt-6 gap-4 px-4 sm:px-0"
-      >
-        <CustomField
-          input={{
-            id: 'title',
-            name: 'title',
-            placeholder: 'Title',
-            component: 'input',
-            type: 'text',
-          }}
-          label="Enter a Title"
-        />
-
-        <CustomField
-          input={{
-            id: 'description',
-            name: 'description',
-            placeholder: 'Description',
-            component: 'input',
-            type: 'text',
-          }}
-          label="Enter a Description"
-        />
-
-        <button
-          type="submit"
-          className="bg-slate-700 rounded-md text-white p-2 hover:bg-slate-400 transition-all mt-8"
+      <Container>
+        <form
+          onSubmit={this.props.handleSubmit(this.handleSubmit)}
+          className="flex flex-col gap-4"
         >
-          Submit
-        </button>
-      </form>
+          <CustomField
+            input={{
+              id: 'title',
+              name: 'title',
+              placeholder: 'Title',
+              component: 'input',
+              type: 'text',
+            }}
+            label="Enter a Title"
+          />
+
+          <CustomField
+            input={{
+              id: 'description',
+              name: 'description',
+              placeholder: 'Description',
+              component: 'input',
+              type: 'text',
+            }}
+            label="Enter a Description"
+          />
+
+          <button
+            type="submit"
+            className="bg-slate-700 rounded-md text-white p-2 hover:bg-slate-400 transition-all mt-8"
+          >
+            Submit
+          </button>
+        </form>
+      </Container>
     );
   }
 }

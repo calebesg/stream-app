@@ -1,4 +1,4 @@
-import streams from '../apis/streams';
+import history from '../history';
 import {
   CREATE_STREAM,
   FETCH_STREAMS,
@@ -8,6 +8,7 @@ import {
   DELETE_STREAM,
   EDIT_STREAM,
 } from './types';
+import streams from '../apis/streams';
 
 export const signIn = userId => {
   return {
@@ -31,6 +32,8 @@ export const createStreamy = formValue => async (dispatch, getState) => {
     type: CREATE_STREAM,
     payload: response.data,
   });
+
+  history.push('/');
 };
 
 export const fetchStreams = () => async dispatch => {
