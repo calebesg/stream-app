@@ -12,6 +12,8 @@ class StreamCreate extends React.Component {
   render() {
     return (
       <Container>
+        <h1 className="font-bold mb-4">Create Stream</h1>
+
         <StreamForm onSubmit={this.handleSubmit} />
       </Container>
     );
