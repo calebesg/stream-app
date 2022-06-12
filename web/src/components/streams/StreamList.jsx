@@ -39,7 +39,12 @@ class StreamList extends React.Component {
           <li key={stream.id} className="flex items-center gap-2 text-3xl mb-4">
             <ion-icon name="image-outline"></ion-icon>
             <div className="flex-1">
-              <h2 className="text-lg font-bold">{stream.title}</h2>
+              <Link
+                to={`/streams/${stream.id}`}
+                className="text-lg font-bold hover:text-blue-500 transition-all"
+              >
+                {stream.title}
+              </Link>
               <p className="text-sm">{stream.description}</p>
             </div>
             {this.renderAdmin(stream)}
