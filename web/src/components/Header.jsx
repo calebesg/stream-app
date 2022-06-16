@@ -3,24 +3,19 @@ import GoogleAuth from './GoogleAuth';
 
 const Header = function () {
   return (
-    <header className="w-full bg-slate-600">
-      <nav className="container mx-auto h-12 flex justify-between items-center px-4 sm:px-0">
-        <Link className="text-white" to="/">
-          Streamy
+    <header className="w-full">
+      <nav className="container mx-auto flex gap-4 justify-between items-center px-4 py-3 sm:px-0 border-b border-gray-100">
+        <Link
+          className="text-gray-700 text-lg font-bebas flex gap-2 items-center"
+          to="/"
+        >
+          <span className="text-xl w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center">
+            📺
+          </span>{' '}
+          STREAMY
         </Link>
-        <ul className="flex items-center gap-4">
-          <li>
-            <Link
-              to="/"
-              className="text-gray-400 hover:text-gray-100 transition-all"
-            >
-              streams
-            </Link>
-          </li>
-          <li>
-            <GoogleAuth />
-          </li>
-        </ul>
+
+        <GoogleAuth />
       </nav>
     </header>
   );
