@@ -54,26 +54,11 @@ class StreamList extends React.Component {
     );
   }
 
-  renderCreate() {
-    if (!this.props.isSignedIn) return null;
-
-    return (
-      <Link
-        to="/streams/new"
-        className="flex gap-2 items-center text-blue-500 hover:text-blue-600"
-      >
-        <ion-icon name="add-circle"></ion-icon>
-        Create new Stream
-      </Link>
-    );
-  }
-
   render() {
     return (
       <Container>
         <header className="flex justify-between items-center">
           <h1 className="font-bold">Streams</h1>
-          {this.renderCreate()}
         </header>
         {this.renderList()}
       </Container>

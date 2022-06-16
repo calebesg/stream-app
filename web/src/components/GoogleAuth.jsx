@@ -39,11 +39,7 @@ class GoogleAuth extends Component {
     return (
       <button
         onClick={this.handleAuth}
-        className={`bg-transparent border rounded-md px-3 py-1 flex items-center gap-2 hover:border-white hover:text-white transition-all ${
-          isSignedIn
-            ? 'border-gray-200 text-gray-200'
-            : 'border-gray-400 text-gray-400'
-        }`}
+        className={`bg-transparent border rounded-full h-9 px-4 flex items-center gap-2 text-sm border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white transition-all }`}
       >
         <ion-icon name="logo-google"></ion-icon>
         {isSignedIn ? 'Sign Out' : 'Sign In'}
