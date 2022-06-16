@@ -12,20 +12,18 @@ class StreamList extends React.Component {
   renderAdmin(stream) {
     if (stream.userId === this.props.currentUserId) {
       return (
-        <div className="flex gap-2 text-sm text-white">
+        <div className="flex gap-2 text-base text-gray-700 group-hover:text-white">
           <Link
             to={`/streams/edit/${stream.id}`}
-            className="rounded-md flex items-center gap-1 bg-gray-400 py-2 px-4 hover:bg-gray-600 transition-all"
+            className="w-8 h-8 rounded-full flex items-center justify-center border group-hover:border-gray-800 group-hover:bg-gray-800"
           >
             <ion-icon name="build-sharp"></ion-icon>
-            EDIT
           </Link>
           <Link
             to={`/streams/delete/${stream.id}`}
-            className="rounded-md flex items-center gap-1 bg-red-400 py-2 px-4 hover:bg-red-600 transition-all"
+            className="w-8 h-8 rounded-full flex items-center justify-center border group-hover:bg-gray-800 group-hover:border-gray-800"
           >
             <ion-icon name="trash-sharp"></ion-icon>
-            DELETE
           </Link>
         </div>
       );
@@ -34,18 +32,23 @@ class StreamList extends React.Component {
 
   renderList() {
     return (
-      <ul className="list-none pt-4 w-full">
+      <ul className="list-none mt-4 w-full flex flex-col gap-4">
         {this.props.streams.map(stream => (
-          <li key={stream.id} className="flex items-center gap-2 text-3xl mb-4">
+          <li
+            key={stream.id}
+            className="flex items-center gap-4 text-gray-700 hover:text-gray-100 text-3xl p-4 border rounded-2xl cursor-pointer hover:bg-gray-700 transition-all group"
+          >
             <ion-icon name="image-outline"></ion-icon>
-            <div className="flex-1">
+            <div className="flex-1 flex flex-col ">
               <Link
                 to={`/streams/${stream.id}`}
-                className="text-lg font-bold hover:text-blue-500 transition-all"
+                className="text-sm text-gray-700 group-hover:text-gray-100"
               >
                 {stream.title}
               </Link>
-              <p className="text-sm">{stream.description}</p>
+              <p className="text-xs text-gray-500 group-hover:text-gray-300">
+                {stream.description}
+              </p>
             </div>
             {this.renderAdmin(stream)}
           </li>
@@ -57,9 +60,8 @@ class StreamList extends React.Component {
   render() {
     return (
       <Container>
-        <header className="flex justify-between items-center">
-          <h1 className="font-bold">Streams</h1>
-        </header>
+        <h1 className="text-lg text-gray-700">Transmitindo agora</h1>
+
         {this.renderList()}
       </Container>
     );
