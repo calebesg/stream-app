@@ -14,13 +14,13 @@ class CustomField extends React.Component {
     return (
       <div className="flex flex-col">
         <label
-          className="font-bold text-gray-600"
+          className="ml-1 text-base text-gray-700"
           htmlFor={this.props.input.id}
         >
           {this.props.label}
         </label>
         <Field
-          className="w-full border border-gray-400 rounded-md p-2"
+          className="w-full mt-1 border border-gray-200 rounded-2xl px-5 h-12 outline-blue-600 text-gray-700"
           {...this.props.input}
           autoComplete="off"
         />
