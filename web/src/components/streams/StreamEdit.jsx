@@ -27,7 +27,7 @@ class StreamEdit extends React.Component {
 
     return (
       <Container>
-        <h1 className="font-bold mb-4">Edit Stream</h1>
+        <h1 className="text-lg text-gray-700">Edit Stream</h1>
 
         <StreamForm
           initialValues={_.pick(this.props.stream, 'title', 'description')}

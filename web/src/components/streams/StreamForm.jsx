@@ -11,7 +11,7 @@ class StreamForm extends React.Component {
     return (
       <form
         onSubmit={this.props.handleSubmit(this.handleSubmit)}
-        className="flex flex-col gap-4"
+        className="mt-4 flex flex-col gap-4"
       >
         <CustomField
           input={{
@@ -37,9 +37,10 @@ class StreamForm extends React.Component {
 
         <button
           type="submit"
-          className="bg-slate-700 rounded-md text-white p-2 hover:bg-slate-400 transition-all mt-8"
+          className="flex items-center justify-center gap-2 rounded-full text-white px-2 h-12 mt-8 bg-gray-700 hover:bg-gray-800 transition-all"
         >
-          Submit
+          Salvar
+          <ion-icon name="send"></ion-icon>
         </button>
       </form>
     );
