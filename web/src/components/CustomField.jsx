@@ -4,28 +4,26 @@ import { getFormMeta } from 'redux-form';
 import { Field, getFormSyncErrors } from 'redux-form/dist/redux-form';
 
 class CustomField extends React.Component {
-  renderError = () => {
-    if (this.props.error && this.props.meta?.visited) {
-      return <span className="text-red-500 text-sm">{this.props.error}</span>;
-    }
-  };
-
   render() {
+    const existError =
+      this.props?.error && this.props.meta?.visited ? true : false;
+
     return (
-      <div className="flex flex-col">
-        <label
-          className="ml-1 text-base text-gray-700"
-          htmlFor={this.props.input.id}
-        >
-          {this.props.label}
-        </label>
+      <fieldset
+        className={`flex flex-col w-full border rounded-2xl px-2 pb-2 relative ${
+          existError && 'border-red-500'
+        }`}
+      >
+        <legend className="text-gray-600 text-sm">{this.props.label}</legend>
+
         <Field
-          className="w-full mt-1 border border-gray-200 rounded-2xl px-5 h-12 outline-blue-600 text-gray-700"
+          className="w-full h-8 px-2 outline-none text-gray-700 rounded-full placeholder:text-red-600"
           {...this.props.input}
           autoComplete="off"
+          aria-label={this.props.label}
+          placeholder={existError && this.props.error}
         />
-        {this.renderError()}
-      </div>
+      </fieldset>
     );
   }
 }

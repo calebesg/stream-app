@@ -11,13 +11,12 @@ class StreamForm extends React.Component {
     return (
       <form
         onSubmit={this.props.handleSubmit(this.handleSubmit)}
-        className="mt-4 flex flex-col gap-4"
+        className="mt-4 flex flex-col gap-4 items-end"
       >
         <CustomField
           input={{
             id: 'title',
             name: 'title',
-            placeholder: 'Title',
             component: 'input',
             type: 'text',
           }}
@@ -28,7 +27,6 @@ class StreamForm extends React.Component {
           input={{
             id: 'description',
             name: 'description',
-            placeholder: 'Description',
             component: 'input',
             type: 'text',
           }}
@@ -37,7 +35,7 @@ class StreamForm extends React.Component {
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-full text-white px-2 h-12 mt-8 bg-gray-700 hover:bg-gray-800 transition-all"
+          className="flex items-center justify-center gap-2 rounded-full text-white w-full sm:w-28 h-12 mt-4 bg-gray-700 hover:bg-gray-800 transition-all"
         >
           Salvar
           <ion-icon name="send"></ion-icon>
